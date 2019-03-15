@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile.consumer
+    environment:
+      - ENV=production
+    volumes:
+      - ./tmp:/tmp
+
+  producer:
+    build:
+      context: .
+      dockerfile: Dockerfile.producer
+    environment:
+      - ENV=production
