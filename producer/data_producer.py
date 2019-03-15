@@ -17,6 +17,9 @@ def produce_data(config):
             queue_client.send_message(
                 QueueUrl=config.QUEUE_URL,
                 MessageBody=data_file.json,
+                MessageAttributes={
+                    'FileName': data_file.file_name
+                },
                 MessageDeduplicationId=_get_message_deduplication_id(config.CLIENT_ID, data_file.file_name),
                 MessageGroupId=_get_message_group_id(config.CLIENT_ID)
             )
