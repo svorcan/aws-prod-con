@@ -1,13 +1,9 @@
 import os
 import boto3
 from botocore.exceptions import ClientError
+from common.exceptions import ConfigError
 
 secrets_client = boto3.client('secretsmanager')
-
-
-class ConfigError(Exception):
-    """Configuration loading error."""
-    pass
 
 
 def get_env_variable_value(key, is_mandatory=False):

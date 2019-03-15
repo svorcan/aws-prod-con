@@ -4,7 +4,6 @@ from common.config import get_env_variable_value, get_secret_value
 class ProductionConfig:
     """Production application configuration - pulled from task environment."""
     CLIENT_ID = get_env_variable_value('CLIENT_ID', is_mandatory=True)
-
     QUEUE_URL = get_env_variable_value('CLIENT_SQS_URL', is_mandatory=True)
 
     SFTP_HOST = get_env_variable_value('SFTP_HOST', is_mandatory=True)
