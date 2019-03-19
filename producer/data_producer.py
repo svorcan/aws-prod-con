@@ -20,7 +20,6 @@ def produce_data(config):
                 MessageAttributes={
                     'FileName': data_file.file_name
                 },
-                MessageDeduplicationId=_get_message_deduplication_id(config.CLIENT_ID, data_file.file_name),
                 MessageGroupId=_get_message_group_id(config.CLIENT_ID)
             )
         except ClientError as e:
@@ -38,12 +37,3 @@ def produce_data(config):
 def _get_message_group_id(client_id):
     """Generate SQS message group id from client ID."""
     return f'Client{client_id}'
-
-
-def _get_message_deduplication_id(client_id, file_name):
-    """Generate SQS message deduplication ID from client ID and unique file name."""
-    deduplication_file_name = re.sub('[^a-zA-Z0-9!?.,:;]', '', file_name)
-    deduplication_id = f'Client{client_id}:{deduplication_file_name}'
-    if len(deduplication_id) > 128:
-        deduplication_id = deduplication_id[:128]
-    return deduplication_id

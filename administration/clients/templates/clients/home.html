@@ -1,0 +1,37 @@
+{% extends "clients/base.html" %}
+
+{% block content %}
+
+<div class="row mt-5 mb-4">
+    <a class="btn btn-primary" href="{% url 'clients-create' %}" role="button">Add new client</a>
+</div>
+<div class="row">
+    {% if object_list %}
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for client in object_list %}
+                <tr>
+                  <th scope="row">{{ client.id }}</th>
+                  <td>{{ client.name }}</td>
+                  <td class="text-right">
+                      <a class="btn btn-primary btn-sm" href="{% url 'clients-detail' client.id %}" role="button">Details</a>
+                  </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    {% else %}
+        <p>There are not any clients defined currently.</p>
+    {% endif %}
+
+    {% include "clients/components/pagination.html" %}
+</div>
+
+{% endblock content %}
