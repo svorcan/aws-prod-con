@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
