@@ -29,7 +29,7 @@ PyYAML==3.13
 readme-renderer==24.0
 requests==2.20.1
 requests-toolbelt==0.8.0
-rsa==3.4.2
+rsa==4.7
 s3transfer==0.2.0
 six==1.11.0
 tqdm==4.28.1
