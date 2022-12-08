@@ -3,7 +3,7 @@ beautifulsoup4==4.6.3
 bleach==3.0.2
 botocore==1.12.109
 bs4==0.0.1
-certifi==2018.10.15
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.3.9
 coverage==4.5.2
